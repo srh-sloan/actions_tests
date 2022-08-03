@@ -1,11 +1,12 @@
 name: Print Branch Name
 on:
   push:
+  workflow_dispatch:
 jobs:  
-print-branch-name:
-  runs-on: ubuntu:latest
-  steps:
-    - run: |
-        echo ref_nam: ${{github.ref_name}}
-        echo ref: ${{github.ref}}
-        echo ${GITHUB_REF#refs/heads/}
+  print-branch-name:
+    runs-on: ubuntu:latest
+    steps:
+      - run: |
+          echo ref_nam: ${{github.ref_name}}
+          echo ref: ${{github.ref}}
+          echo ${GITHUB_REF#refs/heads/}
